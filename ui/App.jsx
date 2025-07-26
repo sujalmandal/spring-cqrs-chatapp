@@ -72,9 +72,13 @@ export default function App() {
           <div style={{ border: "1px solid #ccc", padding: 10, minHeight: 100 }}>
             {messages.length === 0 && <div>No messages yet.</div>}
             {messages.map((msg, i) => (
-              <div key={i}>
-                <b>{msg.sender}:</b> {msg.content}
-              </div>
+              typeof msg === 'object' && msg !== null && 'sender' in msg && 'content' in msg ? (
+                <div key={i}>
+                  <b>{msg.sender}:</b> {msg.content}
+                </div>
+              ) : (
+                <div key={i}>{msg}</div>
+              )
             ))}
           </div>
           <div style={{ marginTop: 10 }}>
