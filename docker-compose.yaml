@@ -81,6 +81,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:29092,INTERNAL://kafka1:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+    restart: unless-stopped
   kafka2:
     container_name: kafka2
     depends_on:
@@ -96,6 +97,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:29093,INTERNAL://kafka2:9093
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+    restart: unless-stopped
   kafka3:
     container_name: kafka3
     depends_on:
@@ -111,6 +113,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: EXTERNAL://localhost:29094,INTERNAL://kafka3:9094
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+    restart: unless-stopped
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui
